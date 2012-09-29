@@ -10,3 +10,7 @@ or put it in your Gemfile
 
   require 'najdi-sms'
   NajdiSms.new("username", "password").send_sms("041000000", "hello world")
+
+If you want to send only 1 SMS, you can alternatively use the class method
+
+  NajdiSms.send_sms("username", "password", "041000000", "hello world")

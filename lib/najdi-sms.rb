@@ -33,6 +33,10 @@ class NajdiSms
     end
   end
 
+  def self.send_sms(username, password, number, message)
+    self.new(username, password).send_sms(number, message)
+  end
+
 private
   def agent
     @agent ||= Mechanize.new do |agent|
