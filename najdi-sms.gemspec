@@ -15,4 +15,6 @@ Gem::Specification.new do |s|
   s.add_dependency "optparse"
 
   #s.add_development_dependency "sqlite3"
+
+  s.executables "najdi-sms"
 end
