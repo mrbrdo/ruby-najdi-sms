@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'najdi-sms'
-  s.version     = '0.0.2'
-  s.authors     = ["Jan Berdajs"]
+  s.version     = '0.0.3'
+  s.authors     = ["Jan Berdajs","Oto Brglez"]
   s.email       = ["mrbrdo@gmail.com"]
   s.homepage    = "https://github.com/mrbrdo/najdi-sms"
   s.summary     = "Send SMSes through najdi.si (slovenian site)."
@@ -12,6 +12,7 @@ Gem::Specification.new do |s|
   #s.test_files = Dir["test/**/*"]
 
   s.add_dependency "mechanize"
+  s.add_dependency "optparse"
 
   #s.add_development_dependency "sqlite3"
 end
