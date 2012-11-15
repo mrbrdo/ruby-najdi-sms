@@ -14,3 +14,7 @@ or put it in your Gemfile
 If you want to send only 1 SMS, you can alternatively use the class method
 
   NajdiSms.send_sms("username", "password", "041000000", "hello world")
+
+= Command line usage
+
+  najdi-sms -u username -p password -n 041000000 -m "hello world"

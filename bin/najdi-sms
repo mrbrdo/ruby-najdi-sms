@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), "/../lib")
+require "optparse"
+require "najdi-sms"
+require "pp"
+
+options = {
+  username: "",
+  password: "",
+  number: "",
+  message: "",
+}
+
+optparse = OptionParser.new do|opts|
+  opts.on('-h', '--help', 'Display this screen') do
+    puts opts
+    exit
+  end
+  opts.on('-u', '--user USERNAME', 'Najdi.si username') do |u|
+    options[:username] = u
+  end
+  opts.on('-p', '--pass PASSWORD', 'Najdi.si password') do |p|
+    options[:password] = p
+  end
+  opts.on('-n', '--number PHONE_NUMBER', 'Phone number (041000000)') do |n|
+    options[:number] = n
+  end
+  opts.on('-m', '--message MESSAGE', 'Message text') do |m|
+    options[:message] = m
+  end
+end
+
+optparse.parse!
+
+if options.values.map {|v| (v.nil? or v.empty? or v=="")? 0: 1 }.inject(0) {|s,v| s+v } != 4
+  puts "All field are mandatory. See: najdi-sms -h"
+  exit
+end
+
+NajdiSms.send_sms(
+  options[:username],
+  options[:password],
+  options[:number],
+  options[:message]
+)
+
+# TODO: Errors handling?
+puts "Sent."
+
