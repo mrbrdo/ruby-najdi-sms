@@ -12,9 +12,8 @@ Gem::Specification.new do |s|
   #s.test_files = Dir["test/**/*"]
 
   s.add_dependency "mechanize"
-  s.add_dependency "optparse"
 
   #s.add_development_dependency "sqlite3"
 
-  s.executables "najdi-sms"
+  s.executables << "najdi-sms"
 end
